@@ -9,51 +9,37 @@
 		<?php
 			echo "Programación Orientados a Objetos" . "<br>" . "<br>";
 
-			/*class Carro{
-				var $ruedas, $color, $motor;
-
-				//Método constructor
-				function Carro(){
-					$this -> ruedas = 4;
-					$this -> color = "";
-					$this -> motor = 1600;
-				}
-
-				function arrancar(){
-					echo "Estoy arrancando" . "<br>";
-				}
-
-				function girar(){
-					echo "Estoy girando" . "<br>";	
-				}
-
-				function frenar(){
-					echo "Estoy frenando" . "<br>";
-				}
-
-				function establece_color ($colorCarro, $nombreCarro){
-					$this->color =$colorCarro;
-					echo "El color del " . $nombreCarro . " es: " . $this->color . "<br>";
-				}
-			}
-
-			$renault = new Carro();
-			$mazda = new Carro();
-			$ferrari = new Carro();
-
-			$mazda -> girar();
-			echo $mazda -> ruedas . "<br>";
-			$ferrari -> establece_color("Amarillo", "ferrari");*/
-
 			echo "Reutilizando código" . "<br>" . "<br>";
 
+			echo "Por medio de un archivo" . "<br>" . "<br>";
+
 			include ("vehiculo.php");
+
+			echo "<br>" . "Se puede usar las variables directamente" . "<br>" . "<br>";
 
 			$renault = new Carro();
 			$proton = new Camion();
 
-			echo "El Renault tiene " .  $renault->ruedas . " ruedas." . "<br>";
-			echo "El camión Protón tiene " .  $proton->ruedas . " ruedas." . "<br>";
+			/*echo "El Renault tiene " .  $renault->ruedas . " ruedas." . "<br>";
+			echo "El camión Protón tiene " .  $proton->ruedas . " ruedas." . "<br>";*/
+
+			echo "<br>" . "Herencia" . "<br>" . "<br>";
+
+			echo "Pertenece al camión:" . "<br>";
+			$proton->frenar();
+			echo "<br>" . "Pertenece al carro:" . "<br>";
+			$renault->arrancar();
+			echo "<br>" . "Pertenece al camión:" . "<br>";
+			$proton->arrancar();
+
+			echo "<br>" . "Modificadores de acceso" . "<br>" . "<br>";
+
+			echo "El Renault tiene " .  $renault->get_ruedas() . " ruedas." . "<br>";
+			echo "El camión Protón tiene " .  $proton->get_ruedas() . " ruedas." . "<br>";
+
+			echo "<br>El Renault tiene un motor de " .  $renault->get_motor() . " cc.<br>";
+			echo "El camión Protón tiene un motor de " .  $proton->get_motor() . " cc.<br>";
+
 		?>	
 	</body>
 </html>
