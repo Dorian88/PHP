@@ -1,7 +1,7 @@
 <?php
 	class Compra_vehiculo{
 		private $precio_base;
-		static $ayuda = 4500;
+		Private static $ayuda = 0;
 
 		function Compra_vehiculo($gama){
 
@@ -35,6 +35,13 @@
 		function precio_final(){
 			$valor_final = $this -> precio_base - self::$ayuda;
 			return $valor_final;
+		}
+
+		static function descuento_gov(){
+			if(date("m-d-y")>"01-23-18"){
+				self::$ayuda = 4500;
+			}
+			
 		}
 	}
 ?>

@@ -9,6 +9,8 @@
 		<?php
 			include("concesionario.php");
 
+			Compra_vehiculo::descuento_gov();
+
 			$compra_Dorian = new Compra_vehiculo("compacto");
 			$compra_Dorian -> tapiceria_cuero("negro");
 			echo $compra_Dorian -> precio_final() . "<br>";
