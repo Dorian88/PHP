@@ -2,18 +2,13 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Conexión a Base de Datos</title>
-		<style>
-			table{
-				width: 50%;
-				border: 1px dotted #FF0000;
-				margin: auto;
-			}
-		</style>
+		<title>Documento sin titulo</title>
 	</head>
 
 	<body>
 		<?php
+			$busqueda =$_GET["buscar"];
+
 			require("conexionDatos.php");
 
 			$conexion = mysqli_connect($db_host, $db_usuario, $db_pass);
@@ -26,7 +21,7 @@
 			mysqli_select_db($conexion, $db_nombre) or die ("La Base de Datos no se encuentra");
 			mysqli_set_charset($conexion, "utf8");
 
-			$query="SELECT * FROM productos WHERE PAÍSDEORIGEN='ESPAÑA'";
+			$query="SELECT * FROM productos WHERE NOMBREARTÍCULO LIKE '%$busqueda%'";
 
 			$resultados = mysqli_query($conexion, $query);
 			
@@ -42,6 +37,6 @@
 			}
 
 			mysqli_close($conexion);
-		?>	
+		?>		
 	</body>
 </html>
