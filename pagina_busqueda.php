@@ -37,6 +37,6 @@
 			}
 
 			mysqli_close($conexion);
-		?>		
+		?>
 	</body>
 </html>
